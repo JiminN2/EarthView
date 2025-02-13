@@ -1,10 +1,15 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import NasaImage from "./components/api.js";
+import Explore from "./components/api.tsx";
+import Header from "./components/Header.tsx";
 
 function App() {
   return (
     <>
-      <NasaImage />
+      <Header />
+      <Routes>
+        <Route path="/explore" element={<Explore />} />
+      </Routes>
     </>
   );
 }
