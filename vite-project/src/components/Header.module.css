@@ -5,9 +5,7 @@ a {
 
 .header {
   display: block;
-  width: 100%;
   background-color: black;
-  position: fixed;
   top: 0;
   left: 0;
   height: 5rem;
@@ -15,6 +13,7 @@ a {
   padding-left: 1rem;
   padding-right: 1rem;
   text-underline-offset: true;
+  margin-bottom: 60px;
 }
 .contents {
   display: flex;

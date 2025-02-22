@@ -1,0 +1,19 @@
+.explanation {
+  display: flex;
+  justify-content: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.title {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.image {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+}
+.subtitle {
+  display: flex;
+  justify-content: center;
+}

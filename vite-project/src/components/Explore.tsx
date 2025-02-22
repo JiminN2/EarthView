@@ -1,4 +1,4 @@
-import NasaImage from "./api.tsx";
+import NasaImage from "./NasaToday.tsx";
 
 export default function Explore() {
   return (
