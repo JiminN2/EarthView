@@ -1,11 +1,29 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./TracklistSidebar.module.css";
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
+  onPlay: (index: number) => void;
 };
 
-export default function TracklistSidebar({ isOpen, onClose }: Props) {
+const tracks = [
+  { label: "Track 1 — Introduction", file: "introduction" },
+  { label: "Track 2 — Orbit", file: "orbit" },
+  { label: "Track 3 — Atmosphere", file: "atmosphere" },
+  { label: "Track 4 — Oceans", file: "oceans" },
+  { label: "Track 5 — Surface", file: "surface" },
+];
+
+export default function TracklistSidebar({ isOpen, onClose, onPlay }: Props) {
+  const navigate = useNavigate();
+
+  const handlePlay = (index: number) => {
+    onPlay(index);
+    onClose();
+    navigate("/introduction");
+  };
+
   return (
     <>
       <div
@@ -25,16 +43,15 @@ export default function TracklistSidebar({ isOpen, onClose }: Props) {
         <h2 className={styles.title}>Tracklist</h2>
         <div className={styles.content}>
           <ul>
-            {[
-              "Track 1 — Introduction",
-              "Track 2 — Orbit",
-              "Track 3 — Atmosphere",
-              "Track 4 — Oceans",
-              "Track 5 — Surface",
-            ].map((track) => (
-              <li key={track} className={styles.trackItem}>
-                <span>{track}</span>
-                <button className={styles.playButton} type="button" aria-label={`Play ${track}`}>
+            {tracks.map((track, index) => (
+              <li key={track.label} className={styles.trackItem}>
+                <span>{track.label}</span>
+                <button
+                  className={styles.playButton}
+                  type="button"
+                  aria-label={`Play ${track.label}`}
+                  onClick={() => handlePlay(index)}
+                >
                   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                     <path d="M8 5v14l11-7z" fill="currentColor" />
                   </svg>

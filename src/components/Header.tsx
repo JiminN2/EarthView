@@ -3,7 +3,11 @@ import { useState } from "react";
 import styles from "./header.module.css";
 import TracklistSidebar from "./TracklistSidebar.tsx";
 
-export default function Header() {
+type Props = {
+  onTrackPlay: (index: number) => void;
+};
+
+export default function Header({ onTrackPlay }: Props) {
   const [tracklistOpen, setTracklistOpen] = useState(false);
 
   return (
@@ -32,7 +36,11 @@ export default function Header() {
         </nav>
       </div>
 
-      <TracklistSidebar isOpen={tracklistOpen} onClose={() => setTracklistOpen(false)} />
+      <TracklistSidebar
+        isOpen={tracklistOpen}
+        onClose={() => setTracklistOpen(false)}
+        onPlay={onTrackPlay}
+      />
     </div>
   );
 }
