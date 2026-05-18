@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import styles from "./Introduction.module.css";
+import IntroductionBg from "./IntroductionBg.tsx";
 
 type Props = {
   activeTrack: {
@@ -55,6 +56,9 @@ export default function Introduction({
 
   return (
     <div className={styles.landing}>
+      <IntroductionBg isPlaying={isPlaying}/>
+       {/* ── All UI sits above the canvas ── */}
+      {/* <div style={{ position: "relative", zIndex: 1 }}></div> */}
       <div className={styles.centerControls}>
         {activeTrack && (
           <>
