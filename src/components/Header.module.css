@@ -4,16 +4,18 @@ a {
 }
 
 .header {
-  display: block;
-  background-color: black;
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  display: block;
+  background-color: transparent;
   height: 5rem;
   color: white;
   padding-left: 1rem;
   padding-right: 1rem;
   text-underline-offset: true;
-  margin-bottom: 60px;
+  z-index: 50;
 }
 .contents {
   display: flex;
