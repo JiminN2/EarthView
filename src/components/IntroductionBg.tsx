@@ -316,9 +316,9 @@ export default function IntroductionBg({ isPlaying = false }: Props) {
       const tz = CAM_Z_START + (CAM_Z_END-CAM_Z_START)*p;
       camera.position.z += (tz-camera.position.z)*0.08;
       const ps = 1-p*0.7;
-      camera.position.x += (mouse.x*8*ps-camera.position.x)*0.03;
+      camera.position.x += (mouse.x*3*ps-camera.position.x)*0.02;
       camera.position.y += (mouse.y*5*ps-camera.position.y)*0.03;
-      camera.lookAt(scene.position);
+      camera.lookAt(0, -1.5, -30);
 
       renderer.render(scene, camera);
     };

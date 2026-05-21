@@ -66,8 +66,17 @@ export default function Introduction({
               type="button"
               className={styles.controlButton}
               onClick={onTogglePlay}
+              aria-label={isPlaying ? "Pause" : "Play"}
             >
-              {isPlaying ? "Pause" : "Play"}
+              {isPlaying ? (
+                <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" fill="currentColor" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+                  <path d="M8 5v14l11-7z" fill="currentColor" />
+                </svg>
+              )}
             </button>
             <button
               type="button"

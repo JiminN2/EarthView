@@ -21,19 +21,15 @@
   max-width: 480px;
 }
 
-.controlButton,
-.nextButton {
-  border: none;
-  border-radius: 999px;
-  padding: 0.95rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: 700;
-}
 
 .controlButton {
-  background: #2d7fe8;
+  background: transparent;
   color: white;
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nextButton {
