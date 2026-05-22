@@ -1,5 +1,5 @@
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { useMemo, useState } from "react";
 import styles from "./App.module.css";
 import Header from "./components/Header.tsx";
 import Explore from "./components/NasaToday.tsx";
@@ -11,7 +11,6 @@ type Track = {
 };
 
 function App() {
-  const location = useLocation();
   const navigate = useNavigate();
   const [currentTrackIndex, setCurrentTrackIndex] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -30,11 +29,7 @@ function App() {
   const activeTrack = currentTrackIndex !== null ? tracks[currentTrackIndex] : null;
   const hasNextTrack = currentTrackIndex !== null && currentTrackIndex + 1 < tracks.length;
 
-  useEffect(() => {
-    if (location.pathname === "/") {
-      navigate("/introduction");
-    }
-  }, [location.pathname, navigate]);
+
 
   const handleTrackPlay = (index: number) => {
     setCurrentTrackIndex(index);
@@ -61,7 +56,14 @@ function App() {
     <div>
       <Header onTrackPlay={handleTrackPlay} />
       <div className={styles.container}>
+        <h1 className={styles.title}>Welcome: A Journey Through Time and Space</h1>
         <Routes>
+          <Route path="/" element={<Introduction activeTrack={activeTrack}
+                isPlaying={isPlaying}
+                hasNextTrack={hasNextTrack}
+                onTogglePlay={handleTogglePlay}
+                onNextTrack={handleNextTrack}
+                onTrackEnd={handleTrackEnd}/>} />  {/* 기본 화면: 타이틀만 보임 */}
           <Route
             path="/introduction"
             element={
@@ -74,9 +76,9 @@ function App() {
                 onTrackEnd={handleTrackEnd}
               />
             }
-          />
-          <Route path="/explore" element={<Explore />} />
-        </Routes>
+  />
+  <Route path="/explore" element={<Explore />} />
+</Routes>
       </div>
     </div>
   );
