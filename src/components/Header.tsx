@@ -21,7 +21,9 @@ export default function Header({ onTrackPlay }: Props) {
             <li>
               <Link to="/explore">Explore</Link>
             </li>
-            <li>News&Events</li>
+            <li>
+              <Link to="/news-events">News&Events</Link>
+            </li>
             <li>
               <button
                 className={styles.trackButton}

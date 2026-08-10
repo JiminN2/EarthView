@@ -4,6 +4,7 @@ import styles from "./App.module.css";
 import Header from "./components/Header.tsx";
 import Explore from "./components/NasaToday.tsx";
 import Introduction from "./components/Introduction.tsx";
+import NewsEvents from "./components/NewsEvents.tsx";
 
 type Track = {
   label: string;
@@ -56,7 +57,6 @@ function App() {
     <div>
       <Header onTrackPlay={handleTrackPlay} />
       <div className={styles.container}>
-        <h1 className={styles.title}>Welcome: A Journey Through Time and Space</h1>
         <Routes>
           <Route path="/" element={<Introduction activeTrack={activeTrack}
                 isPlaying={isPlaying}
@@ -78,6 +78,11 @@ function App() {
             }
   />
   <Route path="/explore" element={<Explore />} />
+  
+    <Route path="/news-events" element={
+<NewsEvents />
+  } />
+  
 </Routes>
       </div>
     </div>
