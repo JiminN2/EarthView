@@ -1,10 +1,11 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
 import styles from "./App.module.css";
-import Header from "./components/Header.tsx";
-import Explore from "./components/NasaToday.tsx";
-import Introduction from "./components/Introduction.tsx";
-import NewsEvents from "./components/NewsEvents.tsx";
+import Header from "./components/Header";
+import Explore from "./components/NasaToday";
+import Introduction from "./components/Introduction";
+import NewsEvents from "./components/NewsEvents";
+import MoodLog from "./components/MoodLog";
 
 type Track = {
   label: string;
@@ -80,8 +81,9 @@ function App() {
   <Route path="/explore" element={<Explore />} />
   
     <Route path="/news-events" element={
-<NewsEvents />
-  } />
+      <NewsEvents />
+                  } />
+  <Route path="/mood-log" element={<MoodLog />} />
   
 </Routes>
       </div>

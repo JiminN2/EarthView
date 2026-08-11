@@ -25,6 +25,9 @@ export default function Header({ onTrackPlay }: Props) {
               <Link to="/news-events">News&Events</Link>
             </li>
             <li>
+              <Link to="/mood-log">Mood Log</Link>
+            </li>
+            <li>
               <button
                 className={styles.trackButton}
                 onClick={() => setTracklistOpen(true)}
