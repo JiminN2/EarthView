@@ -14,7 +14,7 @@ export default function Header({ onTrackPlay }: Props) {
     <div className={styles.header}>
       <div className={styles.contents}>
         <h1>
-          <Link to="/">Earth Project</Link>
+          <Link to="/">Youniverse</Link>
         </h1>
         <nav className={styles.navigation}>
           <ul>
@@ -22,10 +22,10 @@ export default function Header({ onTrackPlay }: Props) {
               <Link to="/explore">Explore</Link>
             </li>
             <li>
-              <Link to="/news-events">News&Events</Link>
+              <Link to="/meditation">Meditation</Link>
             </li>
             <li>
-              <Link to="/mood-log">Mood Log</Link>
+              <Link to="/mood-log">기록하기</Link>
             </li>
             <li>
               <button

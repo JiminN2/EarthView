@@ -4,10 +4,12 @@ import * as THREE from "three";
 type Props = { isPlaying?: boolean };
 
 export default function IntroductionBg({ isPlaying = false }: Props) {
-  const mountRef    = useRef<HTMLDivElement>(null);
+  const mountRef = useRef<HTMLDivElement>(null);
   const isPlayingRef = useRef(isPlaying);
 
+
   useEffect(() => { isPlayingRef.current = isPlaying; }, [isPlaying]);
+
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -158,6 +160,8 @@ export default function IntroductionBg({ isPlaying = false }: Props) {
   }, []);
 
   return (
-    <div ref={mountRef} style={{ position:"fixed", inset:0, width:"100vw", height:"100vh", zIndex:0, pointerEvents:"none" }} />
+    <>
+      <div ref={mountRef} style={{ position:"fixed", inset:0, width:"100vw", height:"100vh", zIndex:0, pointerEvents:"none" }} />
+    </>
   );
 }

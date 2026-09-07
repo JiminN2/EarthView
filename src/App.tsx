@@ -1,11 +1,10 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
 import styles from "./App.module.css";
 import Header from "./components/Header";
 import Explore from "./components/NasaToday";
 import Introduction from "./components/Introduction";
-import NewsEvents from "./components/NewsEvents";
-import MoodLog from "./components/MoodLog";
+import MoodLog from "./components/MoodLog/MoodLog";
 
 type Track = {
   label: string;
@@ -14,6 +13,7 @@ type Track = {
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [currentTrackIndex, setCurrentTrackIndex] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -30,8 +30,6 @@ function App() {
 
   const activeTrack = currentTrackIndex !== null ? tracks[currentTrackIndex] : null;
   const hasNextTrack = currentTrackIndex !== null && currentTrackIndex + 1 < tracks.length;
-
-
 
   const handleTrackPlay = (index: number) => {
     setCurrentTrackIndex(index);
@@ -54,17 +52,26 @@ function App() {
     setIsPlaying(false);
   };
 
+  const shouldShowHeader = location.pathname !== "/mood-log";
+
   return (
     <div>
-      <Header onTrackPlay={handleTrackPlay} />
+      {shouldShowHeader && <Header onTrackPlay={handleTrackPlay} />}
       <div className={styles.container}>
         <Routes>
-          <Route path="/" element={<Introduction activeTrack={activeTrack}
+          <Route
+            path="/"
+            element={
+              <Introduction
+                activeTrack={activeTrack}
                 isPlaying={isPlaying}
                 hasNextTrack={hasNextTrack}
                 onTogglePlay={handleTogglePlay}
                 onNextTrack={handleNextTrack}
-                onTrackEnd={handleTrackEnd}/>} />  {/* 기본 화면: 타이틀만 보임 */}
+                onTrackEnd={handleTrackEnd}
+              />
+            }
+          />
           <Route
             path="/introduction"
             element={
@@ -77,15 +84,10 @@ function App() {
                 onTrackEnd={handleTrackEnd}
               />
             }
-  />
-  <Route path="/explore" element={<Explore />} />
-  
-    <Route path="/news-events" element={
-      <NewsEvents />
-                  } />
-  <Route path="/mood-log" element={<MoodLog />} />
-  
-</Routes>
+          />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/mood-log" element={<MoodLog />} />
+        </Routes>
       </div>
     </div>
   );

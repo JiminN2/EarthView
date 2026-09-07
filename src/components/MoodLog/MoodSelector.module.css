@@ -1,0 +1,58 @@
+.container {
+  background: none;
+  color: #fff;
+  padding: 28px 9px;
+  font-family: 'Courier New', monospace;
+}
+
+.title {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #fff;
+  margin-bottom: 20px;
+}
+
+.selectMood {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(130px, 1fr));
+  gap: 12px 3px;
+}
+
+.moodOption {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 12px;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.moodOption:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.selected {
+  background: #fff;
+  color: #000;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.label {
+  font-weight: 500;
+}
