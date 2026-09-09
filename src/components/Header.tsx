@@ -22,7 +22,7 @@ export default function Header({ onTrackPlay }: Props) {
               <Link to="/explore">Explore</Link>
             </li>
             <li>
-              <Link to="/meditation">Meditation</Link>
+              <Link to="/signIn">Sign In/Up</Link>
             </li>
             <li>
               <Link to="/mood-log">기록하기</Link>

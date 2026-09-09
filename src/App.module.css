@@ -2,8 +2,9 @@ html,
 body,
 #root {
   height: 100%;
-  margin: unset;
+  margin: 0;
   background-color: #00000a;
+  /* overflow: hidden; */
 }
 
 body {
@@ -11,10 +12,7 @@ body {
   padding: 0;
   background-color: #00000a;
 }
-.container {
-  margin: 0 auto;
-  padding: 0 2rem 120px;
-}
+
 .title {
   font-size: 2.5rem;
   font-weight: bold;
@@ -29,4 +27,7 @@ body {
   height : 100%;
   background-color: #00000a;
   color: #ffffff;
+}
+* {
+  box-sizing: border-box;
 }

@@ -6,12 +6,13 @@ type Mood = {
   color: string;
 };
 
+
 const moods: Mood[] = [
   { label: 'Calm', color: '#8FBF5A' },
   { label: 'Happy', color: '#F2E14D' },
-  { label: 'Anxious', color: '#C7EA46' },
+  { label: 'Energetic', color: '#C7EA46' },
   { label: 'Neutral', color: '#D9DEE3' },
-  { label: 'Anxious', color: '#A96BE0' }, // 예시 이미지엔 중복 라벨이 있어서 실제로는 라벨 겹치지 않게 조정 권장
+  { label: 'Anxious', color: '#A96BE0' }, 
   { label: 'Sad', color: '#4C7EF3' },
   { label: 'Angry', color: '#E14B3A' },
 ];

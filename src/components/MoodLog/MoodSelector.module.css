@@ -37,10 +37,6 @@
   transition: background 0.15s ease, color 0.15s ease;
 }
 
-.moodOption:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .selected {
   background: #fff;
   color: #000;
