@@ -5,7 +5,10 @@ import Header from "./components/Header";
 import Explore from "./components/NasaToday";
 import Introduction from "./components/Introduction";
 import MoodLog from "./components/MoodLog/MoodLog";
+<<<<<<< HEAD
 
+=======
+>>>>>>> c453f59 (Remove SignIn/SignUp and trackbar UI)
 
 type Track = {
   label: string;

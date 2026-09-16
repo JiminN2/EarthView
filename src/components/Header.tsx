@@ -24,7 +24,10 @@ export default function Header({ onTrackPlay }: Props) {
             <li>
               <Link to="/explore">Explore</Link>
             </li>
+<<<<<<< HEAD
             
+=======
+>>>>>>> c453f59 (Remove SignIn/SignUp and trackbar UI)
             <li>
               <Link to="/mood-log">기록하기</Link>
             </li>

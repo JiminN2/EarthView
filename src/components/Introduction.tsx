@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type SyntheticEvent } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./Introduction.module.css";
 import IntroductionBg from "./IntroductionBg.tsx";
 
@@ -36,23 +36,6 @@ export default function Introduction({
     }
   }, [isPlaying, activeTrack]);
 
-  useEffect(() => {
-    if (!activeTrack) {
-      setProgress(0);
-    }
-  }, [activeTrack]);
-
-  const handleTimeUpdate = (event: SyntheticEvent<HTMLAudioElement>) => {
-    const audio = event.currentTarget;
-    if (!audio.duration) return;
-    setProgress((audio.currentTime / audio.duration) * 100);
-  };
-
-  const handleLoadedMetadata = (event: SyntheticEvent<HTMLAudioElement>) => {
-    const audio = event.currentTarget;
-    if (!audio.duration) return;
-    setProgress((audio.currentTime / audio.duration) * 100);
-  };
 
   return (
     <div className={styles.landing}>
@@ -98,20 +81,8 @@ export default function Introduction({
           <audio
             ref={audioRef}
             src={`/audio/${activeTrack.file}.mp3`}
-            onLoadedMetadata={handleLoadedMetadata}
-            onTimeUpdate={handleTimeUpdate}
             onEnded={onTrackEnd}
           />
-
-          <div className={styles.trackBar}>
-            <div className={styles.trackLabel}>Now playing: {activeTrack.label}</div>
-            <div className={styles.progressContainer}>
-              <div
-                className={styles.progressFill}
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div>
         </>
       )}
     </div>
