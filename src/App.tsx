@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Explore from "./components/NasaToday";
 import Introduction from "./components/Introduction";
 import MoodLog from "./components/MoodLog/MoodLog";
-import SignInUP from "./components/SignInUP";
+
 
 type Track = {
   label: string;
@@ -55,6 +55,9 @@ function App() {
 
   const shouldShowHeader = location.pathname !== "/mood-log";
 
+
+
+  
   return (
     <div>
       {shouldShowHeader && <Header onTrackPlay={handleTrackPlay} />}
@@ -86,7 +89,6 @@ function App() {
               />
             }
           />
-          <Route path="/signIn" element={<SignInUP />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/mood-log" element={<MoodLog />} />
         </Routes>

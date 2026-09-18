@@ -17,8 +17,17 @@ const moods: Mood[] = [
   { label: 'Angry', color: '#E14B3A' },
 ];
 
-export default function MoodSelector() {
+type MoodSelectorProps = {
+  onSelectMood: (mood: Mood) => void;
+};
+
+export default function MoodSelector({ onSelectMood }: MoodSelectorProps) {
   const [selected, setSelected] = useState<number | null>(null);
+
+  const handleSelect = (index: number) => {
+    setSelected(index);
+    onSelectMood(moods[index]);
+  };
 
   return (
     <div className={styles.container}>
@@ -33,7 +42,7 @@ export default function MoodSelector() {
             className={`${styles.moodOption} ${
               selected === idx ? styles.selected : ''
             }`}
-            onClick={() => setSelected(idx)}
+            onClick={() => handleSelect(idx)}
           >
             <span
               className={styles.dot}
