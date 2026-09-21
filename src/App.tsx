@@ -54,6 +54,9 @@ function App() {
 
   const shouldShowHeader = location.pathname !== "/mood-log";
 
+
+
+  
   return (
     <div>
       {shouldShowHeader && <Header onTrackPlay={handleTrackPlay} />}

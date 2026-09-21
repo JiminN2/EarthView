@@ -1,5 +1,6 @@
 .sidebar {
   width: 30%;
+  min-width: 500px;
   height: 100%;
   position: relative;
   top: 0px;
@@ -7,6 +8,7 @@
   background-color: #010111;
   color: #ffffff;
   padding: 10px;
+
  
 }
 

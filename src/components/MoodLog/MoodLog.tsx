@@ -162,6 +162,17 @@ const edges = paths.flatMap(path => createPathEdges(path));
     });
   }, [nodeMoods]);
 
+  // 사이드바에서 감정 상태를 업데이트하는 함수
+  const handleSelectMood = (mood: Mood) => {
+    if (!selectedNode) return;
+    setNodeMoods((prev) => ({
+      ...prev,
+      [selectedNode]: mood,
+    }));
+    // api 호출
+  }
+
+  console.log("onSelectMood:", selectedNode);
   return (
     <div className={styles.Container} >
       <div>
@@ -169,8 +180,7 @@ const edges = paths.flatMap(path => createPathEdges(path));
       </div>
       <div className={styles.wrapper}>
         <div ref={cyRef} className={styles.cy} />
-        <Sidebar selectedNode={selectedNode} />
-
+        <Sidebar selectedNode={selectedNode} onSelectMood = {handleSelectMood} />
         <button
           type="button"
           className={styles.backButton}

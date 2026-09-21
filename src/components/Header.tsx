@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "./header.module.css";
 import TracklistSidebar from "./TracklistSidebar.tsx";
+import SoundOn from "./SoundOn/SoundOn.tsx";
 
 type Props = {
   onTrackPlay: (index: number) => void;
@@ -13,11 +14,13 @@ export default function Header({ onTrackPlay }: Props) {
   return (
     <div className={styles.header}>
       <div className={styles.contents}>
-        <h1>
-          <Link to="/">Youniverse</Link>
-        </h1>
         <nav className={styles.navigation}>
-          <ul>
+          <ul className={styles.left}>
+            <li>
+              <SoundOn />
+            </li>
+          </ul>
+          <ul className={styles.right}>
             <li>
               <Link to="/explore">Explore</Link>
             </li>
